@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Home from './pages/Home';
 import { Route } from 'react-router';
 import { Switch } from 'react-router';
+import Layout from './components/layout/Layout';
 
 class App extends React.Component {
     constructor(props) {
@@ -13,10 +14,12 @@ class App extends React.Component {
 
     render() {
         return (
-          <div>
-            <Switch>
-                <Route exact path='/' component={Home} />
-            </Switch>
+            <div>
+                <Layout>
+                    <Switch>
+                        <Route exact path='/' component={Home} />
+                    </Switch>
+                </Layout>
           </div>
         );
     }

@@ -7,7 +7,9 @@ import configureStore from './store/configureStore';
 import App from './App';
 import registerServiceWorker from './serviceWorker';
 import { createBrowserHistory } from 'history';
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
 
 const initialState = window.initialReduxState;
 const history = createBrowserHistory();
