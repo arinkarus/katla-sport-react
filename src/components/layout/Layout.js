@@ -7,7 +7,7 @@ const Layout = props => (
         <NavMenu />
         <MDBContainer className="my-4" fluid>
                 {props.children}
-           </MDBContainer>
+        </MDBContainer>
     </div>
 
 );

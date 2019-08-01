@@ -1,0 +1,1 @@
+export const apiDomain = "https://katlasportback.azurewebsites.net/";

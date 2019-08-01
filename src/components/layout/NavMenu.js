@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import {
     MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
     MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
 } from "mdbreact";
+import { connect } from 'react-redux';
 
 class NavMenu extends React.Component {
     state = {
@@ -24,10 +25,10 @@ class NavMenu extends React.Component {
                 <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
                     <MDBNavbarNav left>
                         <MDBNavItem active>
-                            <MDBNavLink to="#!">Home</MDBNavLink>
+                            <MDBNavLink to="/">Home</MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem>
-                            <MDBNavLink to="#!">Awards</MDBNavLink>
+                            <MDBNavLink to="/awards">Awards</MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem>
                             <MDBNavLink to="#!">Employees</MDBNavLink>
@@ -61,4 +62,4 @@ class NavMenu extends React.Component {
     }
 }
 
-export default NavMenu;
+export default connect()(NavMenu);

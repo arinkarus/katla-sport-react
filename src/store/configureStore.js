@@ -1,10 +1,13 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import { connectRouter, routerMiddleware } from 'connected-react-router';
+import { routerReducer, routerMiddleware } from 'react-router-redux';
+import { alert } from './reducers/alertReducer';
+import { awards } from './reducers/awardsReducer';
 
 export default function configureStore(history, initialState) {
     const reducers = {
-     
+        alert,
+        awards
     };
 
     const middleware = [
@@ -21,7 +24,7 @@ export default function configureStore(history, initialState) {
 
     const rootReducer = combineReducers({
         ...reducers,
-        router: connectRouter(history)
+        routing: routerReducer
     });
 
     return createStore(
