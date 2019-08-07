@@ -3,10 +3,18 @@
     "",
     "\\src",
     "\\src\\components",
+    "\\src\\components\\formControls",
     "\\src\\components\\layout",
+    "\\src\\components\\loading",
     "\\src\\pages",
-    "\\src\\pages\\awards"
+    "\\src\\pages\\departments",
+    "\\src\\pages\\employees",
+    "\\src\\pages\\errors",
+    "\\src\\types",
+    "\\src\\utils",
+    "\\src\\utils\\validation",
+    "\\src\\utils\\validation\\formValidators"
   ],
-  "SelectedNode": "\\src\\pages\\awards\\awardsList.js",
+  "SelectedNode": "\\src\\actions\\employeeActions.js",
   "PreviewInSolutionExplorer": false
 }

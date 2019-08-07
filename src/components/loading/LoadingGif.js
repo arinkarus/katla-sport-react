@@ -3,7 +3,7 @@ import { MDBRow } from 'mdbreact';
 
 const LoadingGif = props => (
     <MDBRow className = "justify-content-center">
-        <img src="/loading.gif" height="200px" />
+        <img alt="loading" src="/loading.gif" height="200px" />
     </MDBRow>
 );
 

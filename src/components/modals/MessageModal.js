@@ -2,19 +2,18 @@ import React, { PureComponent } from 'react';
 import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 import PropTypes from 'prop-types';
 
-class ConfirmModal extends PureComponent {
+class MessageModal extends PureComponent {
     render() {
-        const { isOpen, message, toggle, modalTitle, onSave, buttonName } = this.props;
+        const { isOpen, message, toggle, modalTitle, buttonName } = this.props;
         return (
             <MDBContainer>
                 <MDBModal isOpen={isOpen} toggle={toggle}>
-                    <MDBModalHeader toggle={toggle}>{modalTitle}</MDBModalHeader>
+                    <MDBModalHeader gradient="peach" toggle={toggle}>{modalTitle}</MDBModalHeader>
                     <MDBModalBody>
                         {message}
                     </MDBModalBody>
                     <MDBModalFooter>
-                        <MDBBtn onClick={toggle} color="red">Cancel</MDBBtn>
-                        <MDBBtn gradient="peach" onClick={onSave}>{buttonName}</MDBBtn>
+                        <MDBBtn onClick={toggle} color="primary">{buttonName}</MDBBtn>
                     </MDBModalFooter>
                 </MDBModal>
             </MDBContainer>
@@ -22,18 +21,16 @@ class ConfirmModal extends PureComponent {
     }
 }
 
-ConfirmModal.propTypes = {
+MessageModal.propTypes = {
+    buttonName: PropTypes.string,
     isOpen: PropTypes.bool.isRequired,
     message: PropTypes.string.isRequired,
     modalTitle: PropTypes.string.isRequired,
-    onSave: PropTypes.func.isRequired,
     toggle: PropTypes.func.isRequired
 };
 
-ConfirmModal.defaultProps = {
-    buttonName: "OK",
-    modalTitle: "Are you sure?",
-    message: "Changes made by you will be irreversible!"
+MessageModal.defaultProps = {
+    buttonName: "OK"
 };
 
-export default ConfirmModal;
+export default MessageModal;

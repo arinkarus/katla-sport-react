@@ -18,6 +18,7 @@ class AwardsListPage extends React.Component {
         };
         this.toggleDeleteConfirmationModal = this.toggleDeleteConfirmationModal.bind(this);
         this.handleDeleteAward = this.handleDeleteAward.bind(this);
+        this.goToEditAwardPage = this.goToEditAwardPage.bind(this);
     }
 
     componentDidMount() {
@@ -25,8 +26,12 @@ class AwardsListPage extends React.Component {
     }
 
     goToCreateAwardPage() {
-        history.push("/");
+        history.push("/award");
     } 
+
+    goToEditAwardPage(e, id) {
+        history.push(`/award/${id}`);
+    }
 
     handleDeleteAwardClick(e, id) {
         this.toggleDeleteConfirmationModal();
@@ -59,7 +64,7 @@ class AwardsListPage extends React.Component {
                         </MDBCol>
                     </MDBRow>
                 }
-                {this.props.awards &&
+                {(this.props.awards && !this.props.loading) &&
                     <MDBRow className="justify-content-center">
                         <MDBCol>
                             <MDBTable bordered>
@@ -78,9 +83,9 @@ class AwardsListPage extends React.Component {
                                         <td>{award.description}</td>
                                         <td>{award.employeeCount}</td>
                                         <td>
-                                            <MDBBtn size="sm" color="cyan">
-                                                Edit
-                                        </MDBBtn>
+                                            <MDBBtn size="sm" color="cyan" onClick={(e) => this.goToEditAwardPage(e, award.id)}>
+                                                Edit 
+                                            </MDBBtn>
                                             {award.employeeCount === 0 &&
                                                 <MDBBtn onClick={(e) => this.handleDeleteAwardClick(e, award.id)} size="sm" color="red">
                                                     Delete

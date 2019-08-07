@@ -11,11 +11,7 @@ import configureStore from './store/configureStore';
 import history from './utils/history';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import Layout from './components/layout/Layout';
-import { Route, Router } from 'react-router-dom';
 import './App.css';
-import _404ErrorPage from './pages/errors/404ErrorPage';
-import EditAwardPage from './pages/awards/EditAwardPage';
 
 // Get the application-wide store instance, prepopulating with state from the server where available.
 const initialState = window.initialReduxState;

@@ -27,7 +27,7 @@ function getById(awardId) {
 
 function _delete(awardId) {
     const requestOptions = {
-        method: 'DELETE',
+        method: 'DELETE'
     };
 
     return fetch(`${apiDomain}/api/Awards/${awardId}`, requestOptions).then(handleResponse); 
@@ -36,6 +36,7 @@ function _delete(awardId) {
 function create(award) {
     const requestOptions = {
         method: "POST",
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(award)
     };
 
@@ -45,6 +46,7 @@ function create(award) {
 function update(awardId, award) {
     const requestOptions = {
         method: "PUT",
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(award)
     };
 

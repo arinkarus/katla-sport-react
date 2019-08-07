@@ -1,1 +1,1 @@
-export const apiDomain = "https://katlasportback.azurewebsites.net/";
+export const apiDomain = "http://localhost:56952";

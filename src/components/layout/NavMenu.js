@@ -1,59 +1,44 @@
 import React from "react";
 import {
-    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
-    MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
+    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse
 } from "mdbreact";
-import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 class NavMenu extends React.Component {
     state = {
-        isOpen: false
+        isOpen: false,
+        currentLink: "home"
     };
 
+    handleOnNavLinkClick(name, e) {
+        this.setState({ currentLink: name });
+    }
 
     toggleCollapse = () => {
         this.setState({ isOpen: !this.state.isOpen });
     }
 
     render() {
+        const link = this.state.currentLink;
         return (
-            <MDBNavbar color="indigo" dark expand="md">
+            <MDBNavbar color="cyan" dark expand="md">
                 <MDBNavbarBrand>
                     <strong className="white-text">Katla-sport</strong>
                 </MDBNavbarBrand>
                 <MDBNavbarToggler onClick={this.toggleCollapse} />
                 <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
                     <MDBNavbarNav left>
-                        <MDBNavItem active>
-                            <MDBNavLink to="/">Home</MDBNavLink>
+                        <MDBNavItem className={link === "home" ? "active" : ""}>
+                            <MDBNavLink onClick={(e) => this.handleOnNavLinkClick("home", e)} to="/">Home</MDBNavLink>
                         </MDBNavItem>
-                        <MDBNavItem>
-                            <MDBNavLink to="/awards">Awards</MDBNavLink>
+                        <MDBNavItem className={link === "awards" ? "active" : ""}>
+                            <MDBNavLink onClick={(e) => this.handleOnNavLinkClick("awards", e)} to="/awards">Awards</MDBNavLink>
                         </MDBNavItem>
-                        <MDBNavItem>
-                            <MDBNavLink to="#!">Employees</MDBNavLink>
+                        <MDBNavItem className={link === "employees" ? "active" : ""}>
+                            <MDBNavLink onClick={(e) => this.handleOnNavLinkClick("employees", e)} to="/employees">Employees</MDBNavLink>
                         </MDBNavItem>
-                        <MDBNavItem>
-                            <MDBDropdown>
-                                <MDBDropdownToggle nav caret>
-                                    <span className="mr-2">Dropdown</span>
-                                </MDBDropdownToggle>
-                                <MDBDropdownMenu>
-                                    <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                                    <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                                    <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                    <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                </MDBDropdownMenu>
-                            </MDBDropdown>
-                        </MDBNavItem>
-                    </MDBNavbarNav>
-                    <MDBNavbarNav right>
-                        <MDBNavItem>
-                            <MDBFormInline waves>
-                                <div className="md-form my-0">
-                                    <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-                                </div>
-                            </MDBFormInline>
+                        <MDBNavItem className={link === "departments" ? "active" : ""}>
+                            <MDBNavLink onClick={(e) => this.handleOnNavLinkClick("departments", e)} to="/departments">Departments</MDBNavLink>
                         </MDBNavItem>
                     </MDBNavbarNav>
                 </MDBCollapse>
@@ -62,4 +47,4 @@ class NavMenu extends React.Component {
     }
 }
 
-export default connect()(NavMenu);
+export default withRouter(NavMenu);

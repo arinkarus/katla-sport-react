@@ -3,11 +3,15 @@ import thunk from 'redux-thunk';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { alert } from './reducers/alertReducer';
 import { awards } from './reducers/awardsReducer';
+import { departments } from './reducers/departmentsReducer';
+import { employees } from './reducers/employeeReducer';
 
 export default function configureStore(history, initialState) {
     const reducers = {
         alert,
-        awards
+        awards,
+        departments,
+        employees
     };
 
     const middleware = [
